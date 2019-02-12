@@ -8,7 +8,10 @@ import createReduxStore from "./helpers/createReduxStore";
 // see service workers in any doc about PWA's and create-react-app doc
 import * as serviceWorker from "./serviceWorker";
 
-const store = createReduxStore({ appTitle: "Super" });
+const store = createReduxStore({
+  appTitle: "Super",
+  displayClock: true
+});
 
 ReactDOM.render(
   <ReduxProvider store={store}>

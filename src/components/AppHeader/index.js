@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import Clock from "../Clock";
 
-const AppHeader = ({ title, ...props }) => (
+const AppHeader = ({ title, displayClock, ...props }) => (
   <Menu fixed="top" inverted {...props}>
     <Menu.Item as={Link} to="/">
       {title || "React Class: 1"}
@@ -18,9 +18,11 @@ const AppHeader = ({ title, ...props }) => (
     <Menu.Item as={Link} to="/shows">
       TV Shows
     </Menu.Item>
-    <Menu.Item position="right">
-      <Clock />
-    </Menu.Item>
+    {displayClock && (
+      <Menu.Item position="right">
+        <Clock />
+      </Menu.Item>
+    )}
   </Menu>
 );
 
