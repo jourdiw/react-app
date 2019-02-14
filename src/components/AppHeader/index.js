@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-
+import AuthButton from "../AuthButton";
 import Clock from "../Clock";
 
 const AppHeader = ({ title, displayClock, ...props }) => (
@@ -17,6 +17,9 @@ const AppHeader = ({ title, displayClock, ...props }) => (
     </Menu.Item>
     <Menu.Item as={Link} to="/shows">
       TV Shows
+    </Menu.Item>
+    <Menu.Item>
+      <AuthButton />
     </Menu.Item>
     {displayClock && (
       <Menu.Item position="right">
