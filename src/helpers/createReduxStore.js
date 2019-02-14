@@ -9,5 +9,5 @@ import actionLogger from "../middlewares/actionLogger";
 const middlewares = applyMiddleware(actionLogger);
 const devToolsMiddelwares = composeWithDevTools(middlewares);
 
-export default (initialState = {}) =>
+export default initialState =>
   createStore(reducer, initialState, devToolsMiddelwares);

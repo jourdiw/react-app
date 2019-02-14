@@ -23,9 +23,17 @@ import Theme from "./components/Theme";
 import "semantic-ui-css/semantic.min.css";
 import "./app.css";
 import styles from "./app.module.css";
+
+const mapStateToProps = state => ({
+  title: state.config.appTitle,
+  displayClock: state.config.displayClock
+});
+
+const ConnectedHeader = connect(mapStateToProps)(AppHeader);
+
 class App extends Component {
   render() {
-    const { title, displayClock } = this.props;
+    console.log("App render");
     return (
       <Router>
         <Theme.Provider value={{ mainColor: "#333", altColor: "pink" }}>
@@ -37,7 +45,7 @@ class App extends Component {
 
             <Router> only accepts a single children, so we have to use a Fragment too 
           */}
-          <AppHeader title={title} displayClock={displayClock} />
+          <ConnectedHeader />
           <div className={styles.main}>
             <main className={styles.mainInner}>
               <Routes />
@@ -48,11 +56,5 @@ class App extends Component {
     );
   }
 }
-const mapStateToProps = state => ({
-  title: state.appTitle,
-  displayClock: state.displayClock
-});
 
-const ConnectedApp = connect(mapStateToProps)(App);
-
-export default ConnectedApp;
+export default App;

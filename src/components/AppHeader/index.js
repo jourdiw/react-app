@@ -9,8 +9,8 @@ const AppHeader = ({ title, displayClock, ...props }) => (
     <Menu.Item as={Link} to="/">
       {title || "React Class: 1"}
     </Menu.Item>
-    <Menu.Item as={Link} to="/about">
-      About
+    <Menu.Item as={Link} to="/config">
+      Config
     </Menu.Item>
     <Menu.Item as={Link} to="/hoc">
       HOC pattern
