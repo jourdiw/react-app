@@ -1,7 +1,7 @@
 import React from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
-import AuthButton from "../AuthButton";
+import AuthButton from "auth/components/AuthButton";
 import Clock from "../Clock";
 
 const AppHeader = ({ title, displayClock, ...props }) => (

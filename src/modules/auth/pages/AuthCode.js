@@ -1,5 +1,8 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
 import { Header } from "semantic-ui-react";
+
+import { authSuccess } from "../actions";
 
 class AuthCode extends Component {
   state = {
@@ -25,6 +28,7 @@ class AuthCode extends Component {
 
       if (json.access_token) {
         this.setState({ error: false, success: true });
+        this.props.handleAuthSuccess(json.access_token);
       } else {
         this.setState({ error: "Invalid code", success: false });
       }
@@ -52,4 +56,11 @@ class AuthCode extends Component {
   }
 }
 
-export default AuthCode;
+const mapDispatchToProps = dispatch => ({
+  handleAuthSuccess: token => dispatch(authSuccess(token))
+});
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(AuthCode);
