@@ -3,7 +3,7 @@ import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 
 import Clock from "../Clock";
-import AuthButton from '../AuthButton'
+import AuthButton from '../../modules/auth/components/AuthButton'
 
 const AppHeader = ({ title, displayClock, ...props }) => (
   <Menu fixed="top" inverted {...props}>
