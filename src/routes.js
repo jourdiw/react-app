@@ -6,6 +6,7 @@ import HocPage from "./pages/Hoc";
 
 import ShowsRoutes from "shows/routes";
 import ConfigRoutes from "config/routes";
+import AuthRoutes from "auth/routes";
 
 export default () => (
   <>
@@ -17,5 +18,6 @@ export default () => (
     <Route path="/hoc" component={HocPage} />
     <ShowsRoutes prefix="/shows" />
     <ConfigRoutes prefix="/config" namespace="config" />
+    <AuthRoutes prefix="/auth" namespace="auth" />
   </>
 );
