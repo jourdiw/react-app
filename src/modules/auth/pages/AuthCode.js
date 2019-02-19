@@ -16,27 +16,29 @@ class AuthCode extends Component {
       history
     } = this.props;
     const matches = search.match(/\?code=(.*)/);
-    const code = matches[1];
+    if (matches) {
+      const code = matches[1];
 
-    try {
-      const res = await fetch(
-        `http://localhost:3001/api/auth_code?code=${code}`
-      );
-      const json = await res.json();
+      try {
+        const res = await fetch(
+          `http://localhost:3001/api/auth_code?code=${code}`
+        );
+        const json = await res.json();
 
-      console.log(json);
-      this.setState({ loading: false });
+        console.log(json);
+        this.setState({ loading: false });
 
-      if (json.access_token) {
-        this.setState({ error: false, success: true });
-        this.props.handleAuthSuccess(json.access_token);
-        setTimeout(() => history.replace("/user"), 1000);
-      } else {
-        this.setState({ error: "Invalid code", success: false });
+        if (json.access_token) {
+          this.setState({ error: false, success: true });
+          this.props.handleAuthSuccess(json.access_token);
+          setTimeout(() => history.replace("/auth/user"), 1000);
+        } else {
+          this.setState({ error: "Invalid code", success: false });
+        }
+      } catch (err) {
+        console.error(err);
+        this.setState({ error: "Server error", loading: false });
       }
-    } catch (err) {
-      console.error(err);
-      this.setState({ error: "Server error", loading: false });
     }
   };
 
