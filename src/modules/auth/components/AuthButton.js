@@ -13,6 +13,8 @@ const AuthButton = ({ authenticated, logout }) =>
   );
 
 export default connect(
-  state => ({ authenticated: state.auth.authenticated }), // mapState to props
+  // mapStateToProps
+  state => ({ authenticated: state.auth.authenticated }),
+  // mapDispatchToProps
   dispatch => ({ logout: () => dispatch(authDelete()) })
 )(AuthButton);
