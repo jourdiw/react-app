@@ -7,6 +7,9 @@ const persistAuth = store => next => action => {
     const authState = store.getState().auth;
     localStorage.setItem("auth", JSON.stringify(authState));
   }
+  else {
+    next(action)
+  }
 };
 
 export default persistAuth;
