@@ -6,7 +6,7 @@ import HocPage from "./pages/Hoc";
 
 import ShowsRoutes from "shows/routes";
 import ConfigRoutes from "config/routes";
-import AuthRoutes from './modules/auth/routes'
+import AuthRoutes from "auth/routes";
 
 export default () => (
   <>

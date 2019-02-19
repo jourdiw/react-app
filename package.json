@@ -2,7 +2,7 @@
   "name": "react-class",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4000",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "express": "^4.16.4",
     "isomorphic-unfetch": "^3.0.0",
