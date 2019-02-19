@@ -4,6 +4,7 @@ import { Header } from "semantic-ui-react";
 import { connect } from "react-redux";
 
 import { updateTitle, updateClockDisplay } from "../actions";
+import Counter from '../../common/components/Counter'
 
 const TitleInput = connect(
   (state, ownProps) => ({ title: state[ownProps.namespace].appTitle }),
@@ -36,6 +37,9 @@ const ConfigPage = ({ namespace }) => (
     <p>
       <label>Display clock ? </label>
       <DisplayInput namespace={namespace} />
+    </p>
+    <p>
+      <Counter />
     </p>
   </>
 );

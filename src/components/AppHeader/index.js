@@ -2,7 +2,9 @@ import React from "react";
 import { Menu } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import AuthButton from "auth/components/AuthButton";
-import Clock from "../Clock";
+// import Clock from "../Clock";
+import Clock from "../HookClock"
+import HelloUser from '../HelloUser'
 
 const AppHeader = ({ title, displayClock, ...props }) => (
   <Menu fixed="top" inverted {...props}>
@@ -17,6 +19,9 @@ const AppHeader = ({ title, displayClock, ...props }) => (
     </Menu.Item>
     <Menu.Item as={Link} to="/shows">
       TV Shows
+    </Menu.Item>
+    <Menu.Item>
+      <HelloUser />
     </Menu.Item>
     <Menu.Item>
       <AuthButton />

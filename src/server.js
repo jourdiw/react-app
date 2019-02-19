@@ -1,6 +1,6 @@
 const express = require("express");
 const fetch = require("isomorphic-unfetch");
-const config = require("./config.example.json");
+const config = require("./config.json");
 
 const server = express();
 
