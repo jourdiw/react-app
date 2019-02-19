@@ -7,8 +7,14 @@ import createReduxStore from "./helpers/createReduxStore";
 
 // see service workers in any doc about PWA's and create-react-app doc
 import * as serviceWorker from "./serviceWorker";
-
-const store = createReduxStore();
+let initialState;
+if (window) {
+  const auth = JSON.parse(localStorage.getItem("auth"));
+  if (auth) {
+    initialState = { auth };
+  }
+}
+const store = createReduxStore(initialState);
 
 ReactDOM.render(
   <ReduxProvider store={store}>
