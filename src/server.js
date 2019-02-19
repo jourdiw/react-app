@@ -1,6 +1,6 @@
 const express = require("express");
 const fetch = require("isomorphic-unfetch");
-const config = require("./config.json");
+const config = require("./config.example.json");
 
 const server = express();
 
@@ -27,4 +27,6 @@ server.get("/api/auth_code", (req, res) => {
   //res.send("ok");
 });
 
-server.listen(3001);
+server.listen(3001, function () {
+  console.log("Listening on port 3001...")
+});
