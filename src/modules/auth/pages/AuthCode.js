@@ -12,7 +12,8 @@ class AuthCode extends Component {
   };
   componentDidMount = async () => {
     const {
-      location: { search }
+      location: { search },
+      history
     } = this.props;
     const matches = search.match(/\?code=(.*)/);
     const code = matches[1];
@@ -29,6 +30,7 @@ class AuthCode extends Component {
       if (json.access_token) {
         this.setState({ error: false, success: true });
         this.props.handleAuthSuccess(json.access_token);
+        setTimeout(() => history.replace("/user"), 1000);
       } else {
         this.setState({ error: "Invalid code", success: false });
       }
@@ -49,7 +51,7 @@ class AuthCode extends Component {
       <>
         <Header>Authenticating with {provider}</Header>
         {loading && <p>loading...</p>}
-        {success && <p>Success!</p>}
+        {success && <p>Success! Redirecting...</p>}
         {error && <p>Error "{error}", see console</p>}
       </>
     );
