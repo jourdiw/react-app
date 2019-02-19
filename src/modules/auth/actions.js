@@ -5,3 +5,7 @@ export const authSuccess = token => ({
   type: AUTH_SUCCESS,
   payload: token
 });
+
+export const authDelete = token => ({
+  type: AUTH_DELETE
+});

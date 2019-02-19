@@ -43,6 +43,7 @@ class AuthCode extends Component {
     //         }),
     //         dispatch => ({
 
+<<<<<<< HEAD
     //         })
     //     )
     // }
@@ -64,6 +65,37 @@ class AuthCode extends Component {
             </div>
         )    
     }
+=======
+      if (json.access_token) {
+        this.setState({ error: false, success: true });
+        this.props.handleAuthSuccess(json.access_token);
+        setTimeout(() => history.replace("/user"), 1000);
+      } else {
+        this.setState({ error: "Invalid code", success: false });
+      }
+    } catch (err) {
+      console.error(err);
+      this.setState({ error: "Server error", loading: false });
+    }
+  };
+
+  render() {
+    const { loading, success, error } = this.state;
+    const {
+      match: {
+        params: { provider }
+      }
+    } = this.props;
+    return (
+      <>
+        <Header>Authenticating with {provider}</Header>
+        {loading && <p>loading...</p>}
+        {success && <p>Success! Redirecting...</p>}
+        {error && <p>Error "{error}", see console</p>}
+      </>
+    );
+  }
+>>>>>>> 8064c443c8d232ee20ca7b45dd8690bffb32c0fa
 }
 
 const mapDispatchToProps = dispatch => ({
