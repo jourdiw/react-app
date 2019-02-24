@@ -1,8 +1,7 @@
 import React, { Component } from "react";
 
 import { connect } from "react-redux";
-
-// const UserPage = () => ;
+import { updateUserGreeting } from "../actions"
 
 class UserPage extends Component {
   state = {
@@ -22,6 +21,7 @@ class UserPage extends Component {
         user,
         loading: false
       });
+      this.props.handleUserGreeting(user.login)
     } else {
       history.replace("/auth/github");
     }
@@ -48,9 +48,11 @@ class UserPage extends Component {
   }
 }
 
-export default connect(
-  // mapStateToProps:
-  state => ({
-    ...state.auth
-  })
-)(UserPage);
+const mapDispatchToProps = dispatch => ({
+  handleUserGreeting: (username) => dispatch(updateUserGreeting(username)),
+})
+
+export default connect (
+  (state) => ({ ...state.auth}),
+  mapDispatchToProps
+)(UserPage)

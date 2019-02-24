@@ -29,11 +29,11 @@ class AuthCode extends Component {
         this.setState({ loading: false });
 
         if (json.access_token) {
-          this.setState({ error: false, success: true });
+          this.setState({ error: false, success: true, loading: false });
           this.props.handleAuthSuccess(json.access_token);
           setTimeout(() => history.replace("/auth/user"), 1000);
         } else {
-          this.setState({ error: "Invalid code", success: false });
+          this.setState({ error: "Invalid code", success: false, loading: false });
         }
       } catch (err) {
         console.error(err);
