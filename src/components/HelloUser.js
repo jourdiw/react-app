@@ -1,5 +1,5 @@
 import React from 'react'
-import { connect } from 'net';
+import { connect } from 'react-redux';
 
 const HelloUser = ({ username }) => 
     username ? (
@@ -8,8 +8,7 @@ const HelloUser = ({ username }) =>
         <p>No user detected</p>
     );
 
-// export default HelloUser
-export default connect(
+export default connect (
     (state) => ({ username: state.auth.username }),
     null
 )(HelloUser);

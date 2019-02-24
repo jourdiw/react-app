@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import AuthButton from "auth/components/AuthButton";
 // import Clock from "../Clock";
 import Clock from "../HookClock";
-// import HelloUser from '../HelloUser';
+import HelloUser from '../HelloUser';
 
 const AppHeader = ({ title, displayClock, ...props }) => (
   <Menu fixed="top" inverted {...props}>
@@ -21,7 +21,7 @@ const AppHeader = ({ title, displayClock, ...props }) => (
       TV Shows
     </Menu.Item>
     <Menu.Item>
-      {/* <HelloUser /> */}
+      <HelloUser />
     </Menu.Item>
     <Menu.Item>
       <AuthButton />
